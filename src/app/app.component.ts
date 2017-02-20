@@ -8,5 +8,4 @@ import {ContactIconComponent} from './contact-icon.component'
   entryComponents: [ContactIconComponent]
 })
 export class AppComponent {
-  title = 'Test App';
 }

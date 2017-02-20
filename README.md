@@ -1,4 +1,14 @@
-# FirstApp
+# Restaurant Manager
+
+-----Work in Progress-----
+
+Angular 2 application for fully digital restaurant.
+
+1. Customer will be able to order from the website (tablet placed in tables)
+
+2. Kitchen staff get the orders in another url.
+
+3. Manage restaurant as a whole
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
 
