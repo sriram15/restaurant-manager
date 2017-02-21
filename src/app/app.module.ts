@@ -13,7 +13,6 @@ import {OrderPageComponent} from './order/order.page.component';
 import {MenuListComponent} from './order/menu.list.component';
 import {MenuItemComponent} from './order/menu.item.component';
 import {CartDisplayComponent} from './cart/cart-display.component';
-
 import {MenuService} from './order/shared/menu.service';
 import {appRoutes} from '../routes';
 

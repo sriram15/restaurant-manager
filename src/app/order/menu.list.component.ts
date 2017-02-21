@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MenuService} from './shared/menu.service';
 import {MenuItemComponent} from './menu.item.component';
 
@@ -20,13 +20,9 @@ import {MenuItemComponent} from './menu.item.component';
     `],
     entryComponents: [MenuItemComponent]
 })
-export class MenuListComponent implements OnInit{
-    menuList : any[]
+export class MenuListComponent{
+    @Input() menuList : any[]
 
-    constructor(private menuService: MenuService){
-    }
-
-    ngOnInit(){
-        this.menuList = this.menuService.getMenu();
+    constructor(){
     }
 }
