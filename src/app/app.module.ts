@@ -12,8 +12,11 @@ import {NavbarComponent} from './nav/navbar.component';
 import {OrderPageComponent} from './order/order.page.component';
 import {MenuListComponent} from './order/menu.list.component';
 import {MenuItemComponent} from './order/menu.item.component';
-import {CartDisplayComponent} from './cart/cart-display.component';
-import {MenuService} from './order/shared/menu.service';
+import {CartPageComponent} from './cart/cart.page.component';
+import {CartItemComponent} from './cart/cart-item.component'
+
+import {CurrentCartService} from './shared/current.cart.service'
+import {MenuService} from './shared/menu.service';
 import {appRoutes} from '../routes';
 
 @NgModule({
@@ -24,7 +27,8 @@ import {appRoutes} from '../routes';
     OrderPageComponent,
     MenuListComponent,
     MenuItemComponent,
-    CartDisplayComponent
+    CartPageComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import {appRoutes} from '../routes';
     MaterialModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MenuService],
+  providers: [MenuService, CurrentCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

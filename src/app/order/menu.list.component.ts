@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {MenuService} from './shared/menu.service';
+import {MenuService} from '../shared/menu.service';
+import {CurrentCartService} from '../shared/current.cart.service'
 import {MenuItemComponent} from './menu.item.component';
 
 @Component({
@@ -7,7 +8,7 @@ import {MenuItemComponent} from './menu.item.component';
     template: `
         <div class='md-padding' layout="row" flex>
             <div layout="row" flex>
-                <menu-item  layout="column" *ngFor="let menu of menuList" flex [menu]="menu" [quantity]=0></menu-item>
+                <menu-item layout="column" *ngFor="let menu of menuList;let i = index;" flex [menu]="menu" [quantity]="quantityList[i]" (quantityChange)="itemQuantityChanged($event)"></menu-item>
             </div>
         </div>
     `,
@@ -22,7 +23,13 @@ import {MenuItemComponent} from './menu.item.component';
 })
 export class MenuListComponent{
     @Input() menuList : any[]
+    @Input() quantityList : any[]
 
-    constructor(){
+    constructor(private currentCartService: CurrentCartService){
+        console.log(this.quantityList);
+    }
+
+    itemQuantityChanged(obj){
+        this.currentCartService.updateCart(obj);
     }
 }
