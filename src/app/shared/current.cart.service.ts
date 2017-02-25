@@ -11,7 +11,7 @@ export class CurrentCartService{
     updateCart(obj){
         var lIndex = -1;
         this.currentCart.filter((item, index)=>{
-            if(item.name == obj.name){
+            if(item.id == obj.id){
                 lIndex = index;
             }
         });

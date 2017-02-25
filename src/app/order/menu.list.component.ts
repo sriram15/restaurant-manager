@@ -8,7 +8,7 @@ import {MenuItemComponent} from './menu.item.component';
     template: `
         <div class='md-padding' layout="row" flex>
             <div layout="row" flex>
-                <menu-item layout="column" *ngFor="let menu of menuList;let i = index;" flex [menu]="menu" [quantity]="quantityList[i]" (quantityChange)="itemQuantityChanged($event)"></menu-item>
+                <menu-item layout="column" *ngFor="let menu of menuList;let i = index;" flex [menu]="menu" [category]="category" (quantityChange)="itemQuantityChanged($event)"></menu-item>
             </div>
         </div>
     `,
@@ -23,10 +23,8 @@ import {MenuItemComponent} from './menu.item.component';
 })
 export class MenuListComponent{
     @Input() menuList : any[]
-    @Input() quantityList : any[]
-
+    @Input() category: string
     constructor(private currentCartService: CurrentCartService){
-        console.log(this.quantityList);
     }
 
     itemQuantityChanged(obj){

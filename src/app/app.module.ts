@@ -13,7 +13,7 @@ import {OrderPageComponent} from './order/order.page.component';
 import {MenuListComponent} from './order/menu.list.component';
 import {MenuItemComponent} from './order/menu.item.component';
 import {CartPageComponent} from './cart/cart.page.component';
-import {CartItemComponent} from './cart/cart-item.component'
+import {CartListComponent} from './cart/cart.list.component'
 
 import {CurrentCartService} from './shared/current.cart.service'
 import {MenuService} from './shared/menu.service';
@@ -28,7 +28,7 @@ import {appRoutes} from '../routes';
     MenuListComponent,
     MenuItemComponent,
     CartPageComponent,
-    CartItemComponent
+    CartListComponent
   ],
   imports: [
     BrowserModule,

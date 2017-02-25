@@ -1,6 +1,10 @@
-<h3>Order</h3>
-<md-tab-group [dynamicHeight]="true">
-    <md-tab *ngFor="let category of menu" [label]="category.title">
-        <menu-list [menuList]="category.menuItems" [quantityList] = "quantityList"></menu-list>
-    </md-tab>
-</md-tab-group>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">Orders</div>
+        <md-tab-group [dynamicHeight]="true">
+            <md-tab *ngFor="let category of menu" [label]="category.title">
+                <menu-list [menuList]="category.menuItems" [category]="category.title"></menu-list>
+            </md-tab>
+        </md-tab-group>
+    </div>
+</div>

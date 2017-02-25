@@ -13,7 +13,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
                 <div class="price"><b><h4>&#8377;{{menu.price}}</h4></b></div>
                 <div class="actionButtons">
                     <button md-primary md-mini-fab color="primary" (click)="removeButtonEvent()" [disabled]="checkDisabled()"><md-icon>remove</md-icon></button>
-                    <input class="form-control" type="number" placeholder="Quanity" (change)="checkQuantityValue()" [(ngModel)]="quantity" min="0"/>
+                    <input class="form-control" type="number" placeholder="Quanity" (change)="checkQuantityValue()" [(ngModel)]="menu.quantity" min="0"/>
                     <button md-mini-fab color="primary" (click)="addButtonEvent()"><md-icon>add</md-icon></button>
                 </div>
             </md-card-actions>
@@ -57,27 +57,27 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
     `]
 })
 export class MenuItemComponent{
-    @Input() menu
-    @Input() quantity;
+    @Input() menu: any
+    @Input() category: string
     @Output() quantityChange = new EventEmitter();
 
     checkQuantityValue(){
-        if(this.quantity < 0){
-            this.quantity = 0;
+        if(this.menu.quantity < 0){
+            this.menu.quantity = 0;
         }
     }
     checkDisabled(){
-        return (this.quantity == 0);
+        return (this.menu.quantity == 0);
     }
     addButtonEvent(){
-        this.quantity++;
-        this.quantityChange.emit({name: this.menu.name, price: this.menu.price, quantity: this.quantity});
+        this.menu.quantity++;
+        this.quantityChange.emit({id: this.menu.id ,name: this.menu.name, price: this.menu.price, quantity: this.menu.quantity,category: this.category});
     }
 
     removeButtonEvent(){
-        if(this.quantity > 0){
-            this.quantity -- ;
-            this.quantityChange.emit({name: this.menu.name, price: this.menu.price, quantity: this.quantity});
+        if(this.menu.quantity > 0){
+            this.menu.quantity -- ;
+            this.quantityChange.emit({id: this.menu.id ,name: this.menu.name, price: this.menu.price, quantity: this.menu.quantity, category:this.category});
         }
     }
 }

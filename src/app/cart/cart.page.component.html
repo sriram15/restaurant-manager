@@ -1,2 +1,9 @@
-<h3>Cart</h3>
-<cart-item *ngFor="let item of displayList" [item]="item"></cart-item>
+<div class="container-fluid">
+    <div class="panel panel-success">
+        <div class="panel-heading">Cart</div>
+        <div *ngIf="displayList.length>0">
+            <cart-list [items]="displayList"></cart-list>
+        </div>
+        <md-card *ngIf="displayList.length==0"><md-card-title>Wow such empty Cart!! Add more</md-card-title></md-card>
+    </div>
+</div>
